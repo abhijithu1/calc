@@ -1,5 +1,8 @@
 #Importing the tkinter library
 from tkinter import *
+#Functions for all the buttons
+
+
 
 #Defining a window
 root = Tk()
