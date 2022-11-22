@@ -1,6 +1,5 @@
 #Importing the tkinter library
 from tkinter import *
-from tkinter import messagebox
 
 #Functions for all the buttons
 
@@ -20,7 +19,10 @@ def equal():
     except:
         expression = "error! "
         equation.set(expression)
-
+def clear():
+    global expression
+    expression = ""
+    equation.set(expression)
 #Defining a window
 root = Tk()
 
@@ -36,7 +38,7 @@ frame.grid(column=0,row=0,sticky=(N,W,E,S))
 
 #Creating Buttons
 equation = StringVar()
-entry = Entry(frame,width=15,bg="light green",textvariable=equation).grid()
+entry = Entry(frame,width=15,bg="light green",textvariable=equation).grid(row=2,column=4)
 btn7 = Button(frame,text="7",width=5,bg="red",command=lambda: press(7)).grid(row=2,column=0)
 btn8 = Button(frame,text="8",width=5,bg="red",command=lambda: press(8)).grid(row=2,column=1)
 btn9 = Button(frame,text="9",width=5,bg="red",command=lambda: press(9)).grid(row=2,column=2)
@@ -52,7 +54,8 @@ btnmi = Button(frame,text="-",width=5,bg="red",command=lambda: press("-")).grid(
 btn0 = Button(frame,text="0",width=5,bg="red",command=lambda: press(0)).grid(row=5,column=0)
 btndot = Button(frame,text=".",width=5,bg="red",command=lambda: press(".")).grid(row=5,column=1)
 btnpl = Button(frame,text="+",width=5,bg="red",command=lambda: press("+")).grid(row=5,column=2)
-btneq = Button(frame,text="=",width=5,bg="red",command=lambda: equal).grid(row=5,column=3)
+btnclear = Button(frame,text="clear",width=5,bg="light blue",command=clear).grid(row=3,column=4)
+btneq = Button(frame,text="=",width=5,bg="red",command=equal).grid(row=5,column=3)
 
 
 
